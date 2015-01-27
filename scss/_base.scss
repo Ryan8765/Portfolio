@@ -1,0 +1,137 @@
+// =============================
+// Base Styles
+// =============================
+header {
+	//background: linear-gradient(#B1B3A8, white, white);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	@extend %clearfix;
+	box-shadow:0 10px 30px black;
+	background:rgba(255, 255, 255, .2);
+
+	img {
+		float:left;
+		height:70px;
+		width:105px;
+	}
+
+	h1 {
+		float:left;
+		font-size: 2.5em;
+		margin-left:1em;
+		line-height: 70px;
+		vertical-align: middle;
+		color:black;
+		font-family: 'Julius Sans One', sans-serif;
+	}
+
+	a {
+		margin-right: 1em;
+		line-height: 70px;
+		font-size:1em;
+		vertical-align: middle;
+		color:white;
+		font-weight:900;
+		text-decoration:none;
+		text-transform: uppercase;
+		font-family: 'Julius Sans One', sans-serif;
+		&:hover {
+			color:black;
+		}
+	}
+
+	div {
+		@extend %clearfix;
+		display:inline-block;
+		float:right;
+		margin-right:1em;
+	}
+}
+
+h2 {
+	font-size:2.5em;
+	font-family: 'Julius Sans One', sans-serif;
+}
+
+/* Id's
+=====================================*/
+
+#imageWrap {
+	position: fixed;
+	z-index: -10;
+	top:0;
+
+	img{
+		width:100%;
+		height:auto;
+	}
+}
+
+#portfolio {
+	background:white;
+	margin-top:100vh;
+	text-align:center;
+
+	a {
+		font-size:0;
+		margin:1.5em;
+	}
+
+	img {
+		width:450px;
+		height:auto;
+		box-shadow:10px 10px 5px grey;
+		background-color:#D8810A;
+
+		&:hover {
+			opacity: 0.4;
+    		filter: alpha(opacity=40); /* For IE8 and earlier */
+    		cursor:pointer;
+		}
+	}
+}
+
+#heading {
+	position:fixed;
+	top:12em;
+	left:0;
+	right:0;
+	color:black;
+	text-align:center;
+	z-index:-1;
+	h1 {
+		color:white;
+		display:inline;
+		padding:.2em 1em .2em 1em;
+		background-color:rgba(0, 0, 0, 0.5);
+		border-radius:1.5em;
+		font-size:2.5em;
+		font-family: 'Julius Sans One', sans-serif;
+		font-weight:bold;
+		box-shadow:0 10px 30px black;
+	}
+}
+
+
+/* Class
+=====================================*/
+.sectionTitles {
+	text-align:center;
+	padding-top:5em;
+	padding-bottom:2.5em;
+	font-weight:bold;
+	h2 {
+		display:inline;
+	}
+}
+
+.portfolioImgs {
+	margin:1.5em;
+	display:inline-block;
+}
+
+/* Animations
+=====================================*/
+

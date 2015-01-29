@@ -124,17 +124,6 @@ p {
   #portfolio a {
     font-size: 0;
     margin: 1.5em; }
-  #portfolio img {
-    width: 450px;
-    height: auto;
-    box-shadow: 10px 10px 5px grey;
-    background-color: #D8810A;
-    border: 1px solid grey; }
-    #portfolio img:hover {
-      opacity: 0.4;
-      filter: alpha(opacity=40);
-      /* For IE8 and earlier */
-      cursor: pointer; }
 
 #heading {
   position: fixed;
@@ -180,14 +169,31 @@ p {
   text-align: center;
   padding-top: 5em;
   padding-bottom: 2.5em;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-bottom: 2em; }
+  .sectionTitles .white {
+    border-bottom: 3px solid black; }
+  .sectionTitles .black {
+    border-bottom: 3px solid white; }
   .sectionTitles h2 {
-    display: inline; }
+    display: inline;
+    padding-left: 2em;
+    padding-right: 2em; }
 
 .portfolioImgs {
   margin: 1.5em;
   display: inline-block;
   padding-bottom: 5em; }
+  .portfolioImgs img {
+    width: 450px;
+    height: auto;
+    box-shadow: 10px 10px 5px grey;
+    border: 1px solid grey; }
+    .portfolioImgs img:hover {
+      opacity: 0.4;
+      filter: alpha(opacity=40);
+      /* For IE8 and earlier */
+      cursor: pointer; }
 
 .blackArrow {
   background-image: url(../images/blackArrow.jpg);
@@ -215,6 +221,9 @@ p {
   width: 70%;
   margin-left: auto;
   margin-right: auto; }
+
+.triggerFade {
+  opacity: 0; }
 
 /* Animations
 =====================================*/

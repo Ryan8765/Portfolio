@@ -86,20 +86,6 @@ p {
 		font-size:0;
 		margin:1.5em;
 	}
-
-	img {
-		width:450px;
-		height:auto;
-		box-shadow:10px 10px 5px grey;
-		background-color:#D8810A;
-		border:1px solid grey;
-
-		&:hover {
-			opacity: 0.4;
-    		filter: alpha(opacity=40); /* For IE8 and earlier */
-    		cursor:pointer;
-		}
-	}
 }
 
 #heading {
@@ -154,8 +140,17 @@ p {
 	padding-top:5em;
 	padding-bottom:2.5em;
 	font-weight:bold;
+	margin-bottom:2em;
+	.white {
+		border-bottom: 3px solid black;
+	}
+	.black {
+		border-bottom: 3px solid white;
+	}
 	h2 {
 		display:inline;
+		padding-left:2em;
+		padding-right:2em;
 	}
 }
 
@@ -163,6 +158,18 @@ p {
 	margin:1.5em;
 	display:inline-block;
 	padding-bottom:5em;
+	img {
+		width:450px;
+		height:auto;
+		box-shadow:10px 10px 5px grey;
+		border:1px solid grey;
+
+		&:hover {
+			opacity: 0.4;
+    		filter: alpha(opacity=40); /* For IE8 and earlier */
+    		cursor:pointer;
+		}
+	}
 }
 
 .blackArrow {
@@ -193,6 +200,10 @@ p {
 	width:70%;
 	margin-left:auto;
 	margin-right:auto;
+}
+
+.triggerFade {
+	opacity:0;
 }
 
 

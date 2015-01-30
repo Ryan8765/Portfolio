@@ -47,7 +47,7 @@ table {
 
 /* Mixins and Extends
 =====================================*/
-header:after, header div:after {
+header:after, #left:after, .fullSize a:after, .mobileSize a:after {
   content: "";
   display: table;
   clear: both; }
@@ -68,34 +68,6 @@ header {
   box-shadow: 0 10px 30px black;
   background: rgba(255, 255, 255, 0.2);
   z-index: 10; }
-  header img {
-    float: left;
-    height: 70px;
-    width: 105px; }
-  header h1 {
-    float: left;
-    font-size: 2.5em;
-    margin-left: 1em;
-    line-height: 70px;
-    vertical-align: middle;
-    color: black;
-    font-family: 'Vollkorn', serif; }
-  header a {
-    margin-right: 1em;
-    line-height: 70px;
-    font-size: 1em;
-    vertical-align: middle;
-    color: white;
-    font-weight: 900;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'Playfair Display', serif; }
-    header a:hover {
-      color: black; }
-  header div {
-    display: inline-block;
-    float: right;
-    margin-right: 1em; }
 
 h2 {
   font-size: 2.5em;
@@ -119,29 +91,10 @@ p {
 
 #portfolio {
   background: white;
-  margin-top: 100vh;
   text-align: center; }
   #portfolio a {
     font-size: 0;
     margin: 1.5em; }
-
-#heading {
-  position: fixed;
-  top: 12em;
-  left: 0;
-  right: 0;
-  color: black;
-  text-align: center;
-  z-index: -1; }
-  #heading h1 {
-    color: white;
-    display: inline;
-    padding: .2em 1em .2em 1em;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 1.5em;
-    font-size: 3em;
-    font-family: 'Playball', cursive;
-    box-shadow: 0 10px 30px black; }
 
 #about {
   position: relative;
@@ -163,8 +116,29 @@ p {
   padding-bottom: 4em;
   z-index: -1; }
 
+#left {
+  display: inline-block; }
+
 /* Class
 =====================================*/
+.heading {
+  position: fixed;
+  top: 12em;
+  left: 0;
+  right: 0;
+  color: black;
+  text-align: center;
+  z-index: -1; }
+  .heading h1 {
+    color: white;
+    display: inline;
+    padding: .2em 1em .2em 1em;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 1.5em;
+    font-size: 3em;
+    font-family: 'Playball', cursive;
+    box-shadow: 0 10px 30px black; }
+
 .sectionTitles {
   text-align: center;
   padding-top: 5em;
@@ -196,7 +170,7 @@ p {
       cursor: pointer; }
 
 .blackArrow {
-  background-image: url(../images/blackArrow.jpg);
+  background-image: url(../images/blackArrow.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: absolute;
@@ -217,6 +191,17 @@ p {
   width: 40px;
   height: 20px; }
 
+.yellowArrow {
+  background-image: url(../images/yellowArrow.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -20px;
+  width: 40px;
+  height: 20px; }
+
 .textWrap {
   width: 70%;
   margin-left: auto;
@@ -225,7 +210,92 @@ p {
 .triggerFade {
   opacity: 0; }
 
-/* Animations
+.fullPicture {
+  position: relative; }
+  .fullPicture img {
+    width: 100%;
+    height: auto;
+    display: block; }
+
+.fullSize img {
+  float: left;
+  height: 70px;
+  width: 105px; }
+.fullSize h1 {
+  float: left;
+  font-size: 2.5em;
+  margin-left: 1em;
+  line-height: 70px;
+  vertical-align: middle;
+  color: black;
+  font-family: 'Vollkorn', serif; }
+.fullSize a {
+  margin-right: 1em;
+  line-height: 70px;
+  font-size: 1em;
+  vertical-align: middle;
+  color: white;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  display: inline-block;
+  float: right; }
+  .fullSize a:hover {
+    color: black; }
+
+.mobileSize {
+  display: none;
+  text-align: center; }
+  .mobileSize img {
+    height: 70px;
+    width: 105px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
+  .mobileSize h1 {
+    font-size: 2.5em;
+    line-height: 70px;
+    vertical-align: middle;
+    color: black;
+    font-family: 'Vollkorn', serif; }
+  .mobileSize a {
+    line-height: 70px;
+    font-size: 1em;
+    vertical-align: middle;
+    color: white;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+    margin-right: 1em; }
+    .mobileSize a:hover {
+      color: black; }
+
+.backgroundDim {
+  display: block;
+  background-color: black;
+  padding-left: .5em;
+  padding-right: .5em; }
+
+/* Media Queries 
 =====================================*/
+@media (max-width: 760px) {
+  #keyboard1 {
+    display: none; }
+
+  .fullSize {
+    display: none; }
+
+  .mobileSize {
+    display: inline-block; }
+    .mobileSize #right {
+      margin-right: 0; }
+    .mobileSize a {
+      line-height: 1.5em; }
+
+  .heading {
+    display: none; } }
 
 /*# sourceMappingURL=application.css.map */

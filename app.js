@@ -1,5 +1,20 @@
 $(document).ready(function() {
 //--------------------------------
+	//change the margin height of portfolio div to fit fixed main image
+	var portfolioMargin = function() {
+		var windowHeight = window.innerHeight;
+		var imageHeight = $('#imageWrap img').height();
+		//if windowheight is bigger than image height make portfolio div margin equal to image height, else do the opposite
+		if (windowHeight > imageHeight) {
+			$('#portfolio').css('margin-top', imageHeight);
+		} else {
+			$('#portfolio').css('margin-top', windowHeight);
+		}
+	};//end portfolioMargin function
+	
+
+
+	//change navigation colors object
 	var navColors = {
 		isWhite : "no",
 		//scroll height function to change color of nav links and background of nav
@@ -48,32 +63,19 @@ $(document).ready(function() {
 		//elements to fade in
 		elementsToFadeIn: $('.triggerFade'),
 		initialLength: $('.triggerFade').length,
-		triggered: "no",
 		elementsToFadeArray: [],
 		alreadyFaded: [],
 		fadeStuff: function() {
-			//updated length of array
-			var length = this.elementsToFadeArray.length;
-			//counter to push into array above
-			var counter = 0;
+			//current element to look for distance from top of document
 			var currentElement;
 			//distance from top of element to top of document
 			var distanceToTop;
 			//scroll position
 			var scrollPosition;
-		
-			//if this is the first time running function change "triggered" to yes and get the array of elements to fade in
-			if(this.triggered == "no") {
-				for (var i = 0; i < this.initialLength; i++) {
-					this.elementsToFadeArray.push(counter);
-					counter++;
-				}
-				this.triggered = "yes";
-			}//end if
-			//if all of the fadein elements aren't showing yet 
+			//if all of the fadein elements aren't showing yet check for them on scroll..otherwise bypass this to save computing
 			if (this.alreadyFaded.length < this.initialLength) {
 				//for loop to go through all of elements and see if they are within view
-				for (var i = 0; i < length; i++) {
+				for (var i = 0; i < this.initialLength; i++) {
 					//if you have already shown element continue on 
 					if (this.alreadyFaded.indexOf(i) > -1) continue;
 					console.log("hello");
@@ -93,10 +95,19 @@ $(document).ready(function() {
 		}//end fadestuff function
 	};//end fadeData Object
 
-
+	//functions to run on page refresh and open
+	portfolioMargin();
+	fadeElements.fadeStuff();
+	
+	//functions to run on window scroll
 	$(window).scroll(function() {
 		navColors.navFunction();
 		fadeElements.fadeStuff();
+	});
+
+	//functions to run on page resize
+	$(window).resize(function(){
+		portfolioMargin();
 	});
 
 	

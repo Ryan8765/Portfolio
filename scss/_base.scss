@@ -11,44 +11,6 @@ header {
 	box-shadow:0 10px 30px black;
 	background:rgba(255, 255, 255, .2);
 	z-index:10;
-
-	img {
-		float:left;
-		height:70px;
-		width:105px;
-	}
-
-	h1 {
-		float:left;
-		font-size: 2.5em;
-		margin-left:1em;
-		line-height: 70px;
-		vertical-align: middle;
-		color:black;
-		font-family: 'Vollkorn', serif;
-	}
-
-	a {
-		margin-right: 1em;
-		line-height: 70px;
-		font-size:1em;
-		vertical-align: middle;
-		color:white;
-		font-weight:900;
-		text-decoration:none;
-		text-transform: uppercase;
-		font-family: 'Playfair Display', serif;
-		&:hover {
-			color:black;
-		}
-	}
-
-	div {
-		@extend %clearfix;
-		display:inline-block;
-		float:right;
-		margin-right:1em;
-	}
 }
 
 h2 {
@@ -79,32 +41,12 @@ p {
 
 #portfolio {
 	background:white;
-	margin-top:100vh;
+	//margin-top:100vh; take care of by javascript
 	text-align:center;
 
 	a {
 		font-size:0;
 		margin:1.5em;
-	}
-}
-
-#heading {
-	position:fixed;
-	top:12em;
-	left:0;
-	right:0;
-	color:black;
-	text-align:center;
-	z-index:-1;
-	h1 {
-		color:white;
-		display:inline;
-		padding:.2em 1em .2em 1em;
-		background-color:rgba(0, 0, 0, 0.5);
-		border-radius:1.5em;
-		font-size:3em;
-		font-family: 'Playball', cursive;
-		box-shadow:0 10px 30px black;
 	}
 }
 
@@ -133,8 +75,35 @@ p {
 }
 
 
+
+#left {
+	@extend %clearfix;
+	display:inline-block;
+}
+
+
 /* Class
 =====================================*/
+
+.heading {
+	position:fixed;
+	top:12em;
+	left:0;
+	right:0;
+	color:black;
+	text-align:center;
+	z-index:-1;
+	h1 {
+		color:white;
+		display:inline;
+		padding:.2em 1em .2em 1em;
+		background-color:rgba(0, 0, 0, 0.5);
+		border-radius:1.5em;
+		font-size:3em;
+		font-family: 'Playball', cursive;
+		box-shadow:0 10px 30px black;
+	}
+}
 .sectionTitles {
 	text-align:center;
 	padding-top:5em;
@@ -173,7 +142,7 @@ p {
 }
 
 .blackArrow {
-	background-image:url(../images/blackArrow.jpg);
+	background-image:url(../images/blackArrow.png);
 	background-repeat:no-repeat;
 	background-size:100% 100%;
 	position:absolute;
@@ -196,6 +165,18 @@ p {
 	height:20px;
 }
 
+.yellowArrow {
+	background-image:url(../images/yellowArrow.png);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-20px;
+	width:40px;
+	height:20px;
+}
+
 .textWrap {
 	width:70%;
 	margin-left:auto;
@@ -206,8 +187,124 @@ p {
 	opacity:0;
 }
 
+.fullPicture {
+	position:relative;
+	img {
+		width: 100%;
+		height:auto;
+		display:block;
+	}
+}
+
+.fullSize {
+	img {
+		float:left;
+		height:70px;
+		width:105px;
+	}
+
+	h1 {
+		float:left;
+		font-size: 2.5em;
+		margin-left:1em;
+		line-height: 70px;
+		vertical-align: middle;
+		color:black;
+		font-family: 'Vollkorn', serif;
+	}
+
+	a {
+		margin-right: 1em;
+		line-height: 70px;
+		font-size:1em;
+		vertical-align: middle;
+		color:white;
+		font-weight:900;
+		text-decoration:none;
+		text-transform: uppercase;
+		font-family: 'Playfair Display', serif;
+		@extend %clearfix;
+		display:inline-block;
+		float:right;
+		&:hover {
+			color:black;
+		}
+	}
+} //end fullSize
+
+.mobileSize {
+	display:none;
+	text-align: center;
+	img {
+		height:70px;
+		width:105px;
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	h1 {
+		font-size: 2.5em;
+		line-height: 70px;
+		vertical-align: middle;
+		color:black;
+		font-family: 'Vollkorn', serif;
+	}
+
+	a {
+		line-height: 70px;
+		font-size:1em;
+		vertical-align: middle;
+		color:white;
+		font-weight:900;
+		text-decoration:none;
+		text-transform: uppercase;
+		font-family: 'Playfair Display', serif;
+		@extend %clearfix;
+		display:inline-block;
+		margin-right:1em;
+		&:hover {
+			color:black;
+		}
+	}	
+}//end mobile size
+
+.backgroundDim {
+	display:block;
+	background-color:rgba(0, 0, 0, 1);
+	
+	padding-left:.5em;
+	padding-right:.5em;
+}
 
 
-/* Animations
+
+/* Media Queries 
 =====================================*/
+@media (max-width:760px) {
+	#keyboard1 {
+		display:none;
+	}
+
+	.fullSize {
+		display:none;
+	}
+
+	.mobileSize {
+		display:inline-block;
+		#right {
+			margin-right:0;
+		}
+		a {
+			line-height: 1.5em;
+		}
+	}
+
+	.heading {
+		display:none;
+	}
+	
+	
+	
+} //end 760 media
 

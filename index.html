@@ -9,17 +9,26 @@
 	<link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<header>
+	<header class="fullSize">
 		<img src="images/logo.jpg" alt="">
 		<h1>RYAN HAAS</h1>
-		<div>
+		
+		<a target="_blank" href="portfolio">Portfolio</a>
+		<a target="_blank" href="about">About</a>
+		<a target="_blank" href="contact">Contact</a>
+	</header>
+
+	<header class="mobileSize">
+		<img src="images/logo.jpg" alt="">
+		<h1>RYAN HAAS</h1>
+		<div class="backgroundDim">
 			<a target="_blank" href="portfolio">Portfolio</a>
 			<a target="_blank" href="about">About</a>
-			<a target="_blank" href="contact">Contact</a>
+			<a id="right" target="_blank" href="contact">Contact</a>
 		</div>
 	</header>
 
-	<div id="heading">
+	<div class="heading">
 		<h1>Web Developement</h1>
 	</div>
 
@@ -71,7 +80,7 @@
 				<h2 class='black'>About</h2>
 			</div>
 			<div class="textWrap">
-				<img src="images/keyboard.jpg" width="400">
+				<img id="keyboard1" src="images/keyboard.jpg" width="400">
 				<p class="triggerFade">
 					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				</p>
@@ -88,9 +97,14 @@
 		</div>
 	</section>
 
+	<div class='fullPicture'>
+		<div class="blackArrow"></div>
+		<img src="images/webDesignKeyboard.jpg" alt="Web Design Keyboard">
+	</div>
+
 	<section>
 		<div id="contact">
-			<div class="blackArrow"></div>
+			<div class="yellowArrow"></div>
 			<div class="sectionTitles">
 				<h2 class="white">Contact</h2>
 			</div>

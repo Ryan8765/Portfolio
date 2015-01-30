@@ -14,6 +14,7 @@ $(document).ready(function() {
 	};//end portfolioMargin function
 	*/
 
+
 	//change navigation colors object
 	var navColors = {
 		isWhite : "no",
@@ -96,7 +97,7 @@ $(document).ready(function() {
 	};//end fadeData Object
 
 	//functions to run on page refresh and open
-	portfolioMargin();
+	//portfolioMargin();
 	fadeElements.fadeStuff();
 
 	//functions to run on window scroll

@@ -84,7 +84,8 @@ p {
 #imageWrap {
   position: fixed;
   z-index: -10;
-  top: 0; }
+  top: 0;
+  margin-top: 100vh; }
   #imageWrap img {
     width: 100%;
     height: auto; }

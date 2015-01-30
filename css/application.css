@@ -84,14 +84,14 @@ p {
 #imageWrap {
   position: fixed;
   z-index: -10;
-  top: 0;
-  margin-top: 100vh; }
+  top: 0; }
   #imageWrap img {
     width: 100%;
     height: auto; }
 
 #portfolio {
   background: white;
+  margin-top: 100vh;
   text-align: center; }
   #portfolio a {
     font-size: 0;

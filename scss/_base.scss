@@ -32,7 +32,6 @@ p {
 	position: fixed;
 	z-index: -10;
 	top:0;
-	margin-top:100vh;
 
 	img{
 		width:100%;
@@ -42,7 +41,7 @@ p {
 
 #portfolio {
 	background:white;
-	//margin-top:100vh; take care of by javascript
+	margin-top:100vh;
 	text-align:center;
 
 	a {

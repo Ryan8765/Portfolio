@@ -1,6 +1,7 @@
 $(document).ready(function() {
 //--------------------------------
 	//change the margin height of portfolio div to fit fixed main image
+	/*
 	var portfolioMargin = function() {
 		var windowHeight = window.innerHeight;
 		var imageHeight = $('#imageWrap img').height();
@@ -11,8 +12,7 @@ $(document).ready(function() {
 			$('#portfolio').css('margin-top', windowHeight);
 		}
 	};//end portfolioMargin function
-	
-
+	*/
 
 	//change navigation colors object
 	var navColors = {
@@ -98,7 +98,7 @@ $(document).ready(function() {
 	//functions to run on page refresh and open
 	portfolioMargin();
 	fadeElements.fadeStuff();
-	
+
 	//functions to run on window scroll
 	$(window).scroll(function() {
 		navColors.navFunction();

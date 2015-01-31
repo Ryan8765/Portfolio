@@ -57,7 +57,6 @@ p {
 	background-color: black;
 	padding-bottom:4em;
 	position:relative;
-	z-index:-1;
 
 	img {
 		float:right;
@@ -71,7 +70,6 @@ p {
 	text-align:center;
 	background-color: white;
 	padding-bottom:4em;
-	z-index:-1;
 }
 
 
@@ -272,9 +270,26 @@ p {
 .backgroundDim {
 	display:block;
 	background-color:rgba(0, 0, 0, 1);
-	
 	padding-left:.5em;
 	padding-right:.5em;
+	margin-bottom:1em;
+}
+
+.mobileSize {
+	display:none;
+	box-shadow:none;
+	background:none;
+	#right {
+		margin-right:0;
+	}
+	a {
+		padding-top:.5em;
+		padding-bottom:.5em;
+		line-height: 1.5em;
+		&:hover {
+			color:grey;
+		}
+	}
 }
 
 
@@ -290,21 +305,27 @@ p {
 		display:none;
 	}
 
-	.mobileSize {
-		display:inline-block;
-		#right {
-			margin-right:0;
-		}
-		a {
-			line-height: 1.5em;
-		}
-	}
-
 	.heading {
 		display:none;
 	}
-	
-	
-	
+
+	.mobileSize {
+		display:inline-block;
+	}
+
+	.portfolioImgs {
+		 width:80%;
+		 padding-bottom:2em;
+		 img {
+		 	width:100%;
+		 }
+
+	}
+
+	.sectionTitles h2 {
+		padding-right:1em;
+		padding-left:1em;
+		font-size:2em;
+	}
 } //end 760 media
 

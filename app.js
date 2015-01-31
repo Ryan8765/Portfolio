@@ -1,5 +1,20 @@
 $(document).ready(function() {
 //--------------------------------
+
+	var mobileDevice = "/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/";
+
+	//function to hide h2 and logo on scroll for mobile devices
+	var mobileScrollHide = function() {
+		//only trigger on smaller devices
+		if (window.innerHeight < 760) {
+			var scrollPosition = $(window).scrollTop();
+			if (scrollPosition == 0) {
+				$('.mobileSize h1, #mobileLogo').show();
+			} else {
+				$('.mobileSize h1, #mobileLogo').hide();
+			}
+		}
+	};
 	//change the margin height of portfolio div to fit fixed main image
 	var portfolioMargin = function() {
 		var windowHeight = window.innerHeight;
@@ -27,16 +42,22 @@ $(document).ready(function() {
 			var scrollPosition = $(window).scrollTop();
 			//height of header
 			var headerHeight = $('header').outerHeight();
-			//if header scrolls into portfolio and color isn't what it should be...change colors else if change back to original colors.
-			if (scrollPosition > portfolioDistance - headerHeight && this.isWhite == "no") {
-				$('header').css('background', 'rgba(255,255,255,1)');
-				$('header a').css('color', 'black');
-				this.isWhite = "yes";
-			} else if (scrollPosition < portfolioDistance - headerHeight && this.isWhite == "yes") {
-				$('header').css('background', 'rgba(255,255,255,.2)');
-				$('header a').css('color', 'white');
-				this.isWhite = "no";
-			}
+			if (window.innerWidth > 760) {
+				//if header scrolls into portfolio and color isn't what it should be...change colors else if change back to original colors.
+				if (scrollPosition > portfolioDistance - headerHeight && this.isWhite == "no") {
+					$('header').css('background', 'rgba(255,255,255,1)');
+					$('header a').css('color', 'black');
+					this.isWhite = "yes";
+				} else if (scrollPosition < portfolioDistance - headerHeight && this.isWhite == "yes") {
+					$('header').css('background', 'rgba(255,255,255,.2)');
+					$('header a').css('color', 'white');
+					this.isWhite = "no";
+				} else if (scrollPosition == 0) {
+					$('header').css('background', 'rgba(255,255,255,.2)');
+					$('header a').css('color', 'white');
+					this.isWhite = "no";
+				}//end if 
+			}//end if window size
 		}
 	};//end object
 	
@@ -45,12 +66,16 @@ $(document).ready(function() {
 		//grab the links href which is set to the desired element ID you want to scroll to.
 		var headerHeight = $('header').outerHeight();
 		var elementId = clicked.attr('href');
-		$('html, body').animate({
-        	scrollTop: ($("#" + elementId).offset().top)-(headerHeight - 1)
-    	}, 2000);
-    	console.log(elementId);
+		//if on mobile do scrollTo because animations don't work very well on mobile
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) { 
+			window.scrollTo(0, ($("#" + elementId).offset().top)-(headerHeight - 1));
+		} else {
+			$('html, body').animate({
+	        	scrollTop: ($("#" + elementId).offset().top)-(headerHeight - 1)
+	    	}, 2000);
+	    }
 	};//end pluggin function
-
+	//scroll to element clicked
 	$('header a').on('click', function(event){
 		//stop the normal default of clicked "a" link
 		event.preventDefault();
@@ -98,15 +123,23 @@ $(document).ready(function() {
 		}//end fadestuff function
 	};//end fadeData Object
 
+
 	//functions to run on page refresh and open wrapped in window.load to make sure all images have loaded first.
 	$(window).load(function() {
 		portfolioMargin();
-		fadeElements.fadeStuff();
+		mobileScrollHide();
+		//if on a mobile device just show triggerfade otherwise fadein.
+		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
+			$('.triggerFade').css('opacity','1');
+		} else {
+			fadeElements.fadeStuff();
+		}
 	});
 	
 
 	//functions to run on window scroll
 	$(window).scroll(function() {
+		mobileScrollHide();
 		navColors.navFunction();
 		fadeElements.fadeStuff();
 	});

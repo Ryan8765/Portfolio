@@ -102,8 +102,7 @@ p {
   text-align: center;
   background-color: black;
   padding-bottom: 4em;
-  position: relative;
-  z-index: -1; }
+  position: relative; }
   #about img {
     float: right;
     border: 1px solid white;
@@ -113,8 +112,7 @@ p {
   position: relative;
   text-align: center;
   background-color: white;
-  padding-bottom: 4em;
-  z-index: -1; }
+  padding-bottom: 4em; }
 
 #left {
   display: inline-block; }
@@ -277,7 +275,21 @@ p {
   display: block;
   background-color: black;
   padding-left: .5em;
-  padding-right: .5em; }
+  padding-right: .5em;
+  margin-bottom: 1em; }
+
+.mobileSize {
+  display: none;
+  box-shadow: none;
+  background: none; }
+  .mobileSize #right {
+    margin-right: 0; }
+  .mobileSize a {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    line-height: 1.5em; }
+    .mobileSize a:hover {
+      color: grey; }
 
 /* Media Queries 
 =====================================*/
@@ -288,14 +300,21 @@ p {
   .fullSize {
     display: none; }
 
+  .heading {
+    display: none; }
+
   .mobileSize {
     display: inline-block; }
-    .mobileSize #right {
-      margin-right: 0; }
-    .mobileSize a {
-      line-height: 1.5em; }
 
-  .heading {
-    display: none; } }
+  .portfolioImgs {
+    width: 80%;
+    padding-bottom: 2em; }
+    .portfolioImgs img {
+      width: 100%; }
+
+  .sectionTitles h2 {
+    padding-right: 1em;
+    padding-left: 1em;
+    font-size: 2em; } }
 
 /*# sourceMappingURL=application.css.map */

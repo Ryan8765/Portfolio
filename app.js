@@ -1,18 +1,20 @@
 $(document).ready(function() {
 //--------------------------------
 	//change the margin height of portfolio div to fit fixed main image
-	/*
 	var portfolioMargin = function() {
 		var windowHeight = window.innerHeight;
 		var imageHeight = $('#imageWrap img').height();
 		//if windowheight is bigger than image height make portfolio div margin equal to image height, else do the opposite
+		console.log("window height " + windowHeight);
+		console.log("image height " + imageHeight);
 		if (windowHeight > imageHeight) {
 			$('#portfolio').css('margin-top', imageHeight);
 		} else {
+			
 			$('#portfolio').css('margin-top', windowHeight);
 		}
 	};//end portfolioMargin function
-	*/
+	
 
 
 	//change navigation colors object
@@ -96,9 +98,12 @@ $(document).ready(function() {
 		}//end fadestuff function
 	};//end fadeData Object
 
-	//functions to run on page refresh and open
-	//portfolioMargin();
-	fadeElements.fadeStuff();
+	//functions to run on page refresh and open wrapped in window.load to make sure all images have loaded first.
+	$(window).load(function() {
+		portfolioMargin();
+		fadeElements.fadeStuff();
+	});
+	
 
 	//functions to run on window scroll
 	$(window).scroll(function() {

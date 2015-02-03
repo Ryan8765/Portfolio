@@ -3,6 +3,17 @@ $(document).ready(function() {
 
 	var mobileDevice = "/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/";
 
+	//function to change background of header when screen is resized
+	var headerBackground = function() {
+		console.log(window.innerWidth);
+		if (window.innerWidth < 760) {
+			$('header').css('background-color','transparent');
+		} else {
+
+			$('header').css('background-color','rgba(255,255,255,.2)');
+		}
+	};
+
 	//function to hide h2 and logo on scroll for mobile devices
 	var mobileScrollHide = function() {
 		//only trigger on smaller devices
@@ -20,8 +31,6 @@ $(document).ready(function() {
 		var windowHeight = window.innerHeight;
 		var imageHeight = $('#imageWrap img').height();
 		//if windowheight is bigger than image height make portfolio div margin equal to image height, else do the opposite
-		console.log("window height " + windowHeight);
-		console.log("image height " + imageHeight);
 		if (windowHeight > imageHeight) {
 			$('#portfolio').css('margin-top', imageHeight);
 		} else {
@@ -106,7 +115,6 @@ $(document).ready(function() {
 				for (var i = 0; i < this.initialLength; i++) {
 					//if you have already shown element continue on 
 					if (this.alreadyFaded.indexOf(i) > -1) continue;
-					console.log("hello");
 					//grab the first element in array
 					currentElement = this.elementsToFadeIn.eq(i);
 					//get distance from top of element to top of document
@@ -127,7 +135,6 @@ $(document).ready(function() {
 	//functions to run on page refresh and open wrapped in window.load to make sure all images have loaded first.
 	$(window).load(function() {
 		portfolioMargin();
-		mobileScrollHide();
 		//if on a mobile device just show triggerfade otherwise fadein.
 		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 			$('.triggerFade').css('opacity','1');
@@ -147,6 +154,7 @@ $(document).ready(function() {
 	//functions to run on page resize
 	$(window).resize(function(){
 		portfolioMargin();
+		headerBackground();
 	});
 
 	

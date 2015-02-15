@@ -109,7 +109,7 @@ p {
     margin: 0 0 1.5em 1.5em; }
 
 #contact {
-  position: relative;
+  position: absolute;
   text-align: center;
   background-color: white;
   padding-bottom: 4em; }

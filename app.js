@@ -5,11 +5,9 @@ $(document).ready(function() {
 
 	//function to change background of header when screen is resized
 	var headerBackground = function() {
-		console.log(window.innerWidth);
 		if (window.innerWidth < 760) {
 			$('header').css('background-color','transparent');
 		} else {
-
 			$('header').css('background-color','rgba(255,255,255,.2)');
 		}
 	};
@@ -26,7 +24,7 @@ $(document).ready(function() {
 			}
 		}
 	};
-	//change the margin height of portfolio div to fit fixed main image
+	//change the margin top height of portfolio div to fit fixed main image
 	var portfolioMargin = function() {
 		var windowHeight = window.innerHeight;
 		var imageHeight = $('#imageWrap img').height();
@@ -41,9 +39,9 @@ $(document).ready(function() {
 	
 
 
-	//change navigation colors object
+	//change navigation colors
 	var navColors = {
-		isWhite : "no",
+		// isWhite : "no",
 		//scroll height function to change color of nav links and background of nav
 		navFunction : function() {
 			//height from top portfolio to top document
@@ -53,24 +51,27 @@ $(document).ready(function() {
 			var headerHeight = $('header').outerHeight();
 			if (window.innerWidth > 760) {
 				//if header scrolls into portfolio and color isn't what it should be...change colors else if change back to original colors.
-				if (scrollPosition > portfolioDistance - headerHeight && this.isWhite == "no") {
+				if (scrollPosition > portfolioDistance - headerHeight) {
 					$('header').css('background', 'rgba(255,255,255,1)');
 					$('header a').css('color', 'black');
-					this.isWhite = "yes";
-				} else if (scrollPosition < portfolioDistance - headerHeight && this.isWhite == "yes") {
+				} else if (scrollPosition < portfolioDistance - headerHeight) {
 					$('header').css('background', 'rgba(255,255,255,.2)');
 					$('header a').css('color', 'white');
-					this.isWhite = "no";
+					
 				} else if (scrollPosition == 0) {
 					$('header').css('background', 'rgba(255,255,255,.2)');
 					$('header a').css('color', 'white');
-					this.isWhite = "no";
+					
 				}//end if 
 			}//end if window size
-		}
+			//make sure color of header text is white on smaller devices and window resizes
+			if (window.innerWidth < 760) {
+				$('header a').css('color','white');
+			}
+		}//end navFunction
 	};//end object
 	
-	//create a jquery plugin that allows you to scroll to a specific point after clicking a link
+	//create a jquery plugin that allows you to scroll slowly to a specific point after clicking a link
 	$.fn.slowScroll = function(clicked) {
 		//grab the links href which is set to the desired element ID you want to scroll to.
 		var headerHeight = $('header').outerHeight();
@@ -135,6 +136,7 @@ $(document).ready(function() {
 	//functions to run on page refresh and open wrapped in window.load to make sure all images have loaded first.
 	$(window).load(function() {
 		portfolioMargin();
+		navColors.navFunction();
 		//if on a mobile device just show triggerfade otherwise fadein.
 		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 			$('.triggerFade').css('opacity','1');
@@ -155,8 +157,8 @@ $(document).ready(function() {
 	$(window).resize(function(){
 		portfolioMargin();
 		headerBackground();
+		navColors.navFunction();
 	});
-
 	
 //----------------------------------	
 });

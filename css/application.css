@@ -119,6 +119,12 @@ p {
 
 /* Class
 =====================================*/
+#lg {
+  display: relative; }
+
+#sm {
+  display: none; }
+
 .heading {
   position: fixed;
   top: 12em;
@@ -177,6 +183,18 @@ p {
   margin-left: -20px;
   width: 40px;
   height: 20px; }
+
+.arrow-sm {
+  background-image: url(../images/downArrowsSm.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -20px;
+  width: 40px;
+  height: 20px;
+  display: none; }
 
 .whiteArrow {
   background-image: url(../images/whiteArrow.png);
@@ -315,6 +333,18 @@ p {
   .sectionTitles h2 {
     padding-right: 1em;
     padding-left: 1em;
-    font-size: 2em; } }
+    font-size: 2em; }
+
+  #sm {
+    display: block; }
+
+  #lg {
+    display: none; }
+
+  .yellowArrow {
+    display: none; }
+
+  .arrow-sm {
+    display: inline-block; } }
 
 /*# sourceMappingURL=application.css.map */

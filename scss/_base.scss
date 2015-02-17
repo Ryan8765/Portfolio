@@ -83,6 +83,14 @@ p {
 /* Class
 =====================================*/
 
+#lg {
+	display:relative;
+}
+
+#sm {
+	display:none;
+}
+
 .heading {
 	position:fixed;
 	top:12em;
@@ -141,38 +149,22 @@ p {
 
 .blackArrow {
 	background-image:url(../images/blackArrow.png);
-	background-repeat:no-repeat;
-	background-size:100% 100%;
-	position:absolute;
-	top:0;
-	left:50%;
-	margin-left:-20px;
-	width:40px;
-	height:20px;
+	@include arrows;
 }
 
+.arrow-sm {
+	background-image:url(../images/downArrowsSm.png);
+	@include arrows;
+	display:none;
+}
 .whiteArrow {
 	background-image:url(../images/whiteArrow.png);
-	background-repeat:no-repeat;
-	background-size:100% 100%;
-	position:absolute;
-	top:0;
-	left:50%;
-	margin-left:-20px;
-	width:40px;
-	height:20px;
+	@include arrows;
 }
 
 .yellowArrow {
 	background-image:url(../images/yellowArrow.png);
-	background-repeat:no-repeat;
-	background-size:100% 100%;
-	position:absolute;
-	top:0;
-	left:50%;
-	margin-left:-20px;
-	width:40px;
-	height:20px;
+	@include arrows;
 }
 
 .textWrap {
@@ -327,5 +319,22 @@ p {
 		padding-left:1em;
 		font-size:2em;
 	}
+
+	#sm {
+		display:block;
+	}
+
+	#lg {
+		display:none;
+	}
+
+	.yellowArrow {
+		display:none;
+	}
+
+	.arrow-sm {
+		display:inline-block;
+	}
 } //end 760 media
+
 

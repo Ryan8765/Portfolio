@@ -3,6 +3,20 @@ $(document).ready(function() {
 	
 	var mobileDevice = "/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/";
 
+	//function to animate links on page load to draw user attention
+	var animateHeading = function () { 
+		if (window.innerWidth > 760) {
+			//move it off window for non-javascript users
+			$( ".animate" ).animate({
+			    fontSize: '1.1em'
+			}, 1500, function() {
+				$( ".animate" ).animate({
+			    	fontSize: '1em'
+				}, 1500);
+			});
+		}
+	};//end animateHeading function
+
 	//function to change background of header when screen is resized
 	var headerBackground = function() {
 		if (window.innerWidth < 760) {
@@ -71,7 +85,7 @@ $(document).ready(function() {
 			}
 		}//end navFunction
 	};//end object
-	//correct underlines on smaller devices of they have been triggered by javascript
+	//correct underlines on smaller devices if they have been triggered by javascript
 	var correctUnderline = function() {
 		if (window.innerWidth < 550) {
 			$('.animateLine').css('padding-left', '32px');
@@ -196,6 +210,7 @@ $(document).ready(function() {
 	$(window).load(function() {
 		portfolioMargin();
 		navColors.navFunction();
+		animateHeading();
 		//if on a mobile device just show triggerfade otherwise fadein.
 		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 			$('.triggerFade').css('opacity','1');

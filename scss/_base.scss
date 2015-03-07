@@ -21,9 +21,10 @@ h2 {
 p {
 	font-size:1.2em;
 	text-align:justify;
-	text-indent:25px;
 	margin-bottom:1em;
 }
+
+
 
 /* Id's
 =====================================*/
@@ -59,13 +60,16 @@ p {
 	position:relative;
 
 	img {
-		float:right;
+		margin-right:auto;
+		margin-left:auto;
+		margin-bottom:4em;
 		border:1px solid white;
-		margin:0 0 1.5em 1.5em;
 	}
 }
 
 #contact {
+	right:0;
+	left:0;
 	position:absolute;
 	text-align:center;
 	background-color: white;
@@ -79,10 +83,6 @@ p {
 	display:inline-block;
 }
 
-
-/* Class
-=====================================*/
-
 #lg {
 	display:relative;
 }
@@ -91,8 +91,65 @@ p {
 	display:none;
 }
 
+#centerTable {
+	list-style-position:inside;
+	li {
+		text-align:center;
+	}
+}
+
+
+
+/* Class
+=====================================*/
+.email {
+	font-size:1.1em;
+	font-weight:bold;
+}
+.table td {
+	list-style-type:disc;
+}
+
+.center-text {
+	text-align:center;	
+}
+
+
+.title {
+	color:#CE885E;
+	font-size:1.1em;
+}
+.clear {
+	clear:both;
+}
+
+.experience {
+	line-height:1.4em;
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom:1em;
+	h3 {
+		line-height: 1.4em;
+		color:#CE885E;
+		font-size:2em;
+		margin-bottom:1em;
+		margin-top:1.5em;
+	}
+	ol {
+		list-style-type:disc;
+		li {
+			text-align:left;
+			font-size:1.2em;
+			padding-bottom:5px;
+			padding-top:5px;
+		}
+	}
+}
+
 .heading {
 	position:fixed;
+	// for animation
 	top:12em;
 	left:0;
 	right:0;
@@ -107,7 +164,7 @@ p {
 		border-radius:1.5em;
 		font-size:3em;
 		font-family: 'Playball', cursive;
-		box-shadow:0 10px 30px black;
+		// box-shadow:0 10px 30px black;
 	}
 }
 .sectionTitles {
@@ -277,7 +334,7 @@ p {
 	a {
 		padding-top:.5em;
 		padding-bottom:.5em;
-		line-height: 1.5em;
+		line-height: 1.4em;
 		&:hover {
 			color:grey;
 		}
@@ -336,5 +393,11 @@ p {
 		display:inline-block;
 	}
 } //end 760 media
+
+@media (max-width: 500px) {
+	.experience {
+		width:100%;
+	}
+}
 
 

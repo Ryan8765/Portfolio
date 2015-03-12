@@ -4,18 +4,13 @@ $(document).ready(function() {
 	var mobileDevice = "/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/";
 
 	//function to animate links on page load to draw user attention
-	var animateHeading = function () { 
-		if (window.innerWidth > 760) {
-			//move it off window for non-javascript users
-			$( ".animate" ).animate({
-			    fontSize: '1.1em'
-			}, 1500, function() {
-				$( ".animate" ).animate({
-			    	fontSize: '1em'
-				}, 1500);
-			});
-		}
-	};//end animateHeading function
+	// var animateHeading = function () { 
+	// 	if (window.innerWidth > 760) {
+	// 		$( ".heading h1" ).animate({
+	// 		    boxShadow: '10px 10px 20px #000000'
+	// 		}, 2000);
+	// 	}
+	// };
 
 	//function to change background of header when screen is resized
 	var headerBackground = function() {
@@ -210,7 +205,6 @@ $(document).ready(function() {
 	$(window).load(function() {
 		portfolioMargin();
 		navColors.navFunction();
-		animateHeading();
 		//if on a mobile device just show triggerfade otherwise fadein.
 		if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) {
 			$('.triggerFade').css('opacity','1');

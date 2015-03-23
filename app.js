@@ -1,8 +1,5 @@
 $(document).ready(function() {
 //--------------------------------
-	
-	var mobileDevice = "/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/";
-
 	//function to animate links on page load to draw user attention
 	// var animateHeading = function () { 
 	// 	if (window.innerWidth > 760) {
@@ -26,7 +23,7 @@ $(document).ready(function() {
 		//only trigger on smaller devices
 		if (window.innerHeight < 760) {
 			var scrollPosition = $(window).scrollTop();
-			if (scrollPosition == 0) {
+			if (scrollPosition === 0) {
 				$('.mobileSize h1, #mobileLogo').show();
 			} else {
 				$('.mobileSize h1, #mobileLogo').hide();
@@ -68,7 +65,7 @@ $(document).ready(function() {
 					$('header').css('background', 'rgba(255,255,255,.2)');
 					$('header a').css('color', 'white');
 					
-				} else if (scrollPosition == 0) {
+				} else if (scrollPosition === 0) {
 					$('header').css('background', 'rgba(255,255,255,.2)');
 					$('header a').css('color', 'white');
 					
@@ -133,7 +130,7 @@ $(document).ready(function() {
 			//grab the links href which is set to the desired element ID you want to scroll to.
 			var headerHeightLg = $('.fullSize').outerHeight();
 			//header height for small devices
-			var headerHeightSm = $('.mobileSize').outerHeight();
+			// var headerHeightSm = $('.mobileSize').outerHeight();
 			var elementId = clicked.attr('href');
 			//if on mobile do scrollTo because animations don't work very well on mobile
 			if (navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)) { 
